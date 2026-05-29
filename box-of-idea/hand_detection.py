@@ -4,7 +4,6 @@ import math
 import os
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
-from pynput.mouse import Controller, Button
 
 def main():
     cam = input("Choisie la caméra : ")
@@ -13,7 +12,7 @@ def main():
     except ValueError:
         cam_index = 0
     # Configuration du détecteur de mains
-    model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model', 'hand_detection', 'hand_landmarker.task')
+    model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model', 'hand_detection', 'hand_landmarker.task')
     base_options = python.BaseOptions(model_asset_path=model_path)
     options = vision.HandLandmarkerOptions(base_options=base_options,
                                             num_hands=1,
@@ -32,7 +31,6 @@ def main():
         (0, 17)
     ]
 
-    mouse = Controller()
     cap = cv2.VideoCapture(cam_index)
     try:
         cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
@@ -79,8 +77,6 @@ def main():
                 if prev_index is not None:
                     dx = curr[0] - prev_index[0]
                     dy = curr[1] - prev_index[1]
-                    x, y = mouse.position
-                    mouse.position = ((x + dx * 2000), (y + dy * 2000)) 
         cv2.imshow("Hand Tracking", frame)
         prev_index = curr
         key = cv2.waitKey(1) & 0xFF

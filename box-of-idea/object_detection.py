@@ -54,7 +54,7 @@ def cv2_imshow(image_bgr: np.ndarray, window_name: str = "Object detection") -> 
     cv2.imshow(window_name, image_bgr)
 
 def object() -> None:
-    model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model', 'object_detection', 'efficientdet_lite0.tflite')
+    model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model', 'object_detection', 'efficientdet_lite0.tflite')
     base_options = python.BaseOptions(model_asset_path=str(model_path))
     options = vision.ObjectDetectorOptions(base_options=base_options, score_threshold=0.3)
     detector = vision.ObjectDetector.create_from_options(options)

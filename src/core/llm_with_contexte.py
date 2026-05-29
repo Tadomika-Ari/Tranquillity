@@ -9,7 +9,7 @@ import tempfile
 import os
 import json
 
-MODEL = "qwen3-next:80b-cloud"
+MODEL = "llama3.2:3b"
 VOICE_PATH = "model/tts/glados/fr_FR-glados-medium.onnx"
 PERSONALITY_PATH = "src/personality/personality.json"
 
@@ -91,4 +91,6 @@ def llm():
         history.append({"role": "assistant", "content": reponse.strip()})
         reponse = ""
 
-llm()
+
+if __name__ == "__main__":
+    llm()
