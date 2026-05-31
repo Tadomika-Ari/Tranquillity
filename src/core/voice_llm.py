@@ -8,6 +8,8 @@ import queue
 import tempfile
 import os
 
+import core.state as state
+
 MODEL = "llama3.2:3b"
 VOICE_PATH = "model/tts/glados/fr_FR-glados-medium.onnx"
 
@@ -36,10 +38,13 @@ def llm():
     while (True):
         message = input(">>> ").strip()
         if (message == "/exit"):
+            state.is_alive = 0
             exit()
         if not message:
             print("No message\n")
             return
+
+        state.time_statue = False
         voice = PiperVoice.load(VOICE_PATH)
         audio_q: "queue.Queue[str | None]" = queue.Queue()
         t = threading.Thread(target=player_worker, args=(audio_q,), daemon=True)
@@ -73,3 +78,4 @@ def llm():
         audio_q.put(None)
         t.join()
         print("\n")
+        # endroit du time_statut
