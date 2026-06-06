@@ -1,4 +1,5 @@
 import requests
+from subagent.check_subagent import check_subagent
 from ollama import chat
 import core.state as state
 import wave
@@ -10,7 +11,7 @@ import tempfile
 import os
 import json
 
-MODEL = "llama3.2:3b"
+MODEL = "test:latest"
 VOICE_PATH = "model/tts/glados/fr_FR-glados-medium.onnx"
 PERSONALITY_PATH = "src/personality/personality.json"
 
@@ -37,9 +38,9 @@ def player_worker(q: "queue.Queue[str | None]"):
 
 def llm():
     print(f"start convesation with {MODEL}")
-    with open(PERSONALITY_PATH, "r", encoding="utf-8") as f:
-        personnality = json.load(f)
-    history = [personnality]
+    #with open(PERSONALITY_PATH, "r", encoding="utf-8") as f:
+    #    personnality = json.load(f)
+    history = []
     while (True):
         message = input(">>> ").strip()
         if (message == "/exit"):
@@ -70,7 +71,6 @@ def llm():
             print(token, end="", flush=True)
             buf += token
             reponse += token
-            reponse += " "
             if should_flush(buf):
                 text = buf.strip()
                 buf = ""
@@ -89,6 +89,12 @@ def llm():
 
         audio_q.put(None)
         t.join()
+
+        print(f"\n{reponse}\n")
+        if "<cmd>" in reponse:
+            subagent = threading.Thread(target=check_subagent, args=(reponse.strip(),), daemon=True)
+            subagent.start()
+
         print("\n")
         history.append({"role": "assistant", "content": reponse.strip()})
         reponse = ""
