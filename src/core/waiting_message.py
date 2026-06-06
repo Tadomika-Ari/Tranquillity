@@ -9,7 +9,7 @@ import tempfile
 import os
 import json
 
-MODEL = "llama3.2:3b"
+MODEL = "test:latest"
 VOICE_PATH = "model/tts/glados/fr_FR-glados-medium.onnx"
 PERSONALITY_PATH = "src/personality/personality.json"
 
