@@ -3,3 +3,4 @@ requests
 ollama
 piper-tts
 vosk
+rapidfuzz
