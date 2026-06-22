@@ -4,3 +4,5 @@ ollama
 piper-tts
 vosk
 rapidfuzz
+sounddevice
+pyyaml
