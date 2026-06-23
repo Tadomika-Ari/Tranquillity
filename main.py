@@ -5,6 +5,7 @@ import sounddevice as sd
 from vosk import Model, KaldiRecognizer, SetLogLevel
 import yaml
 from rapidfuzz import fuzz
+import random
 
 SetLogLevel(-1)  # Supprime les logs verbeux de Vosk
 
@@ -18,6 +19,16 @@ def callback(indata, frames, time, status):
     if status:
         print(status, file=sys.stderr)
     audio_queue.put(bytes(indata))
+
+def check_respons(dico, text):
+    best_score = 0
+    for entry in dico:
+        for trigger in entry["trigger"]:
+            score = fuzz.partial_ratio(text, trigger)
+            if score > best_score:
+                best_score = score
+    if best_score > 70:
+        return random.choice(entry["respons"])
 
 def main():
     model = Model(MODEL_PATH)
@@ -45,9 +56,8 @@ def main():
                 if text:
                     print(f"[final] {text}")
                     print("\n")
-                    for entry in dico:
-                        for trigger in entry["trigger"]:
-                            print(fuzz.partial_ratio(text, trigger))
+                    respons = check_respons(dico, text)
+                    print(respons)
             else:
                 partial = json.loads(rec.PartialResult())
                 p = partial.get("partial", "").strip()
