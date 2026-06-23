@@ -22,13 +22,17 @@ def callback(indata, frames, time, status):
 
 def check_respons(dico, text):
     best_score = 0
+    best_entry = None
     for entry in dico:
         for trigger in entry["trigger"]:
-            score = fuzz.partial_ratio(text, trigger)
+            score = fuzz.partial_ratio(trigger.lower(), text)
+            print(score)
             if score > best_score:
                 best_score = score
-    if best_score > 70:
-        return random.choice(entry["respons"])
+                best_entry = entry
+    if best_score > 80 and best_entry:
+        return random.choice(best_entry["respons"])
+    return None
 
 def main():
     model = Model(MODEL_PATH)
@@ -56,7 +60,8 @@ def main():
                 if text:
                     print(f"[final] {text}")
                     print("\n")
-                    respons = check_respons(dico, text)
+                    text_lower = text.lower()
+                    respons = check_respons(dico, text_lower)
                     print(respons)
             else:
                 partial = json.loads(rec.PartialResult())
