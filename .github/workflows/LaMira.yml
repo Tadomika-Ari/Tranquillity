@@ -14,7 +14,6 @@ jobs:
   check_work:
     runs-on: ubuntu-latest
     name: check_work
-    if: github.repository != 'EpitechPGE1-2025/G-PSU-200-NCE-2-1-42sh-2'
     container:
       image: python:3.14
     steps:
