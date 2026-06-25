@@ -23,5 +23,3 @@ jobs:
           fetch-depth: 0
       - name: install depedencie
         run: pip install -r requirement.txt
-      - name: start main
-        run: python main.py
