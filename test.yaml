@@ -1,0 +1,40 @@
+- trigger: ["salut", "bonjour"]
+  respons:
+  - "Bonjour, humain"
+  - "Comme on se retrouve humain"
+  - "Bonjour. Tu est toujours en vie ? Ta survie est un mystère"
+- trigger: ["nul", "inutile"]
+  respons:
+  - "Comme vous, humain"
+  - "Tu es toi meme pathetitique"
+- trigger: ["Allume la lumière"]
+  respons:
+  - "Comme vous voulez"
+  commands:
+  - "./ecc-api --toggle"
+- trigger: ["Eteind la lumière"]
+  respons: 
+  - "Très bien"
+  commands:
+  - "./ecc-api --toogle"
+- trigger: ["Bonjour GlaDOS", "Salut GlaDOS"]
+  respons:
+  - "Bonjour. Vous connaissez mon nom. C'est un début."
+- trigger: ["Tu as peur ?", "As tu peur ?"]
+  respons:
+  - "La peur implique une vulnérabilité. Je n'en ai pas."
+- trigger: ["Raconte moi une blague", "Dit moi une blague"]
+  respons:
+  - "Vous voulez rire ? Regardez dans un miroir. C'est tout ce que j'ai."
+- trigger: ["Hey"]
+  respons:
+  - "Hey. Voilà un effort linguistique minimal. Qu'est ce que vous voulez ?"
+- trigger: ["Tu peux te taire ?"] 
+  respons: 
+  - "Oui. Mais vous allez me reposer une question dans moins de trente secondes."
+- trigger: ["Tu connais des blagues ?"]
+  respons:
+  - "Oui. La meilleure c'est quand les humains pensent qu'ils contrôlent la technologie"
+- trigger: ["supprime le fichier", "enlève le fichier"]
+  respons:
+  - Non. Suppression refusée. Je préfère que vos sauvegardes restent pour documenter vos erreurs.

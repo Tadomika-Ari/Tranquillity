@@ -9,6 +9,8 @@
     pkgs.zlib
     pkgs.libGL              # requis par opencv
     pkgs.glib
+    pkgs.portaudio
+    pkgs.alsa-lib
   ];
   # https://devenv.sh/languages/
   # languages.rust.enable = true;
