@@ -1,8 +1,8 @@
-# Epi-DOS
+# Tranquillity
 
-Epi-DOS ? 
+Tranquillity ? 
 
-C'est un projet qui vise à recréer une IA GLaDOS capable d'assister n'importe quelles tâches.
+C'est un projet qui vise à recréer un assistant personnel avec la voix IA GLaDOS, et capable d'assister n'importe quelles tâches sur un pc.
 
 Inspiré d'une célèbre IA du jeu vidéo Portal 2, mais aussi des projets déjà effectués un peu partout sur Internet.
 
@@ -16,15 +16,41 @@ Inspiré d'une célèbre IA du jeu vidéo Portal 2, mais aussi des projets déj�
 
 Fonctionnalité :
 
-* Prise en charge d'LLM local.
-* Interaction depuis une caméra.
-* Reconnaissance de geste.
-* Détection objet.
-* Et bien d'autres. 
+* Prise en charge d'LLM local et personnalisé.
+* Reconnaissance de commande et phrase rapidement.
 
-```
+
+***
+
+Fonctionnalité à prévoir :
+
+* Prise en charge de la caméra.
+* Reconnaissance des gestes.
+* Et bien d'autre.
+
+***
+
+Dévellopement :
+
+Pour linux ou windows :
+
+```bash
 ./env/bin/python -m pip install -r requirement.txt
 
+```
+
+Pour nixos : 
+
+Nécessite devenv
+
+```bash
+devenv init
+```
+
+puis
+
+```bash
+devenv start
 ```
 
 
