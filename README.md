@@ -18,7 +18,7 @@ Fonctionnalité :
 
 * Prise en charge d'LLM local et personnalisé.
 * Reconnaissance de commande et phrase rapidement.
-
+* Utilise la cli ctOS, créer spécialement pour Tranquillity
 
 ***
 
