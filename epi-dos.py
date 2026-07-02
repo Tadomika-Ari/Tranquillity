@@ -12,6 +12,7 @@ from core.voice_llm import llm
 from core.llm_with_contexte import llm as llm_with_contexte
 from core.core import core
 from core.waiting_message import waiting_message
+from core.fast import main as llm_fast
 
 def init():
     print("\n")
@@ -21,6 +22,7 @@ def init():
     print("2 : llm with context and voice.\n")
     print("3 : with threading\n")
     print("4 : waiting message\n")
+    print("5 : fast message")
     choice = input("donne ton choix : ")
 
     if (int(choice) == 1):
@@ -31,6 +33,8 @@ def init():
         core()
     if (int(choice) == 4):
         waiting_message()
+    if (int(choice) == 5):
+        llm_fast()
     if (int(choice) != 0):
         return
 
