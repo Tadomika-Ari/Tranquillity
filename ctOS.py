@@ -38,4 +38,6 @@ def main():
         help()
     else:
         return 84
-main()
+
+if __name__ == "__main__":
+    main()

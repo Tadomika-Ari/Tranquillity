@@ -26,6 +26,8 @@ devenv.local.yaml
 .env
 .spotify_token.json
 model/vosk/vosk-model-small-fr/vosk-model-fr-0.22
+tranquillity.egg-info
+/dist
 
 token.json
 settings/credentials.json
