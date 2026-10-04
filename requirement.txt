@@ -21,3 +21,8 @@ google-auth-httplib2
 google-auth-oauthlib
 
 html2text
+
+feedparser
+
+build
+twine
