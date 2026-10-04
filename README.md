@@ -65,6 +65,16 @@ python ctOS.py --init
 python ctOS.py --start
 ```
 
+Docker:
+
+```bash
+docker build -f docker/Dockerfile -t tranquillity:local .
+TRANQUILLITY_IMAGE=tranquillity:local python docker_launcher.py --help
+
+```
+
+The `tranquillity` command from `pyproject.toml` runs `docker_launcher.py` on the host. The Docker image itself runs `ctOS.py` and forwards the arguments supplied to the launcher.
+
 ***
 
 Inspiration:
