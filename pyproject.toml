@@ -1,0 +1,43 @@
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tranquillity"
+version = "0.1.0"
+dependencies = []
+
+[project.optional-dependencies]
+app = [
+    "opencv-contrib-python",
+    "requests",
+    "ollama",
+    "piper-tts",
+    "vosk",
+    "rapidfuzz",
+    "sounddevice",
+    "pyyaml",
+    "spacy",
+    "rich",
+    "python-dotenv",
+    "click",
+    "google-generativeai",
+    "google-genai",
+    "google-api-python-client",
+    "google-auth-httplib2",
+    "google-auth-oauthlib",
+    "html2text",
+    "feedparser",
+]
+
+[project.scripts]
+tranquillity = "docker_launcher:main"
+
+[tool.setuptools]
+py-modules = ["ctOS", "docker_launcher"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "settings*"]
+namespaces = true
