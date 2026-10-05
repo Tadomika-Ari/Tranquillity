@@ -9,7 +9,7 @@ on:
   schedule:
     - cron: '33 10 * * *'
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feature/isolation-env" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
