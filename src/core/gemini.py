@@ -175,6 +175,7 @@ def gemini():
             blocksize=BLOCK_SIZE,
             dtype="int16",
             channels=1,
+            latency="high",
             callback=callback,
     ):
         while True:
